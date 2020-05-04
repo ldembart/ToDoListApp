@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -30,12 +31,120 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Things to Practice" id="YBt-Vr-KoG">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IYe-QN-Rr6"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IYe-QN-Rr6">
+                            <connections>
+                                <segue destination="pcD-Il-YxM" kind="show" id="DAH-ng-AJ6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="qpg-dc-IDH" kind="show" identifier="moveToComplete" id="66E-8Y-Nkb"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mHX-Af-koL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1810.144927536232" y="114.50892857142857"/>
+        </scene>
+        <!--Complete To Do View Controller-->
+        <scene sceneID="wHi-ye-WgE">
+            <objects>
+                <viewController id="qpg-dc-IDH" customClass="CompleteToDoViewController" customModule="ToDoListApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PxI-Yf-SCm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyH-aJ-vXS">
+                                <rect key="frame" x="186" y="312" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hzh-wQ-kOw">
+                                <rect key="frame" x="173.5" y="433" width="67" height="30"/>
+                                <state key="normal" title="Complete"/>
+                                <connections>
+                                    <action selector="completeTapped:" destination="qpg-dc-IDH" eventType="touchUpInside" id="eFG-uv-lxz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="hzh-wQ-kOw" firstAttribute="top" secondItem="nyH-aJ-vXS" secondAttribute="bottom" constant="100" id="076-yg-Ezm"/>
+                            <constraint firstItem="hzh-wQ-kOw" firstAttribute="centerY" secondItem="PxI-Yf-SCm" secondAttribute="centerY" id="KeF-gW-mM8"/>
+                            <constraint firstItem="hzh-wQ-kOw" firstAttribute="centerX" secondItem="PxI-Yf-SCm" secondAttribute="centerX" id="fSY-DF-jxD"/>
+                            <constraint firstItem="nyH-aJ-vXS" firstAttribute="centerX" secondItem="PxI-Yf-SCm" secondAttribute="centerX" id="u2R-Cg-cjF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="IbX-A8-AGY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="JnB-in-Kdy"/>
+                    <connections>
+                        <outlet property="titleLabel" destination="nyH-aJ-vXS" id="FRs-sJ-Olh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kfh-Fs-x7a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1805" y="830"/>
+        </scene>
+        <!--Add To Do View Controller-->
+        <scene sceneID="XK2-Bd-Ge9">
+            <objects>
+                <viewController id="pcD-Il-YxM" customClass="AddToDoViewController" customModule="ToDoListApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1r6-fg-hkm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What are you practicing?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6a-F3-xgR">
+                                <rect key="frame" x="111.5" y="291.5" width="191" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oUW-GX-gJe">
+                                <rect key="frame" x="112" y="329" width="191" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iaP-hG-h7b">
+                                <rect key="frame" x="182.5" y="432.5" width="51" height="31"/>
+                            </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gL6-B5-wf2">
+                                <rect key="frame" x="149" y="513.5" width="116" height="30"/>
+                                <state key="normal" title="Time to practice!"/>
+                                <connections>
+                                    <action selector="addTapped:" destination="pcD-Il-YxM" eventType="touchUpInside" id="2Mg-JT-v5f"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Important?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxd-SB-ebq">
+                                <rect key="frame" x="165" y="388" width="84" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="oxd-SB-ebq" firstAttribute="centerX" secondItem="1r6-fg-hkm" secondAttribute="centerX" id="LPT-Y5-Dji"/>
+                            <constraint firstItem="gL6-B5-wf2" firstAttribute="top" secondItem="iaP-hG-h7b" secondAttribute="bottom" constant="50" id="Mef-uv-6hN"/>
+                            <constraint firstItem="oUW-GX-gJe" firstAttribute="centerX" secondItem="1r6-fg-hkm" secondAttribute="centerX" id="NzA-1C-Bpv"/>
+                            <constraint firstItem="iaP-hG-h7b" firstAttribute="centerX" secondItem="1r6-fg-hkm" secondAttribute="centerX" id="OU7-Hu-GiL"/>
+                            <constraint firstItem="iaP-hG-h7b" firstAttribute="top" secondItem="oUW-GX-gJe" secondAttribute="bottom" constant="70" id="RML-tK-eP2"/>
+                            <constraint firstItem="iaP-hG-h7b" firstAttribute="centerY" secondItem="1r6-fg-hkm" secondAttribute="centerY" id="t1q-zX-Fmr"/>
+                            <constraint firstItem="iaP-hG-h7b" firstAttribute="top" secondItem="R6a-F3-xgR" secondAttribute="bottom" constant="120" id="wSM-LM-OMx"/>
+                            <constraint firstItem="iaP-hG-h7b" firstAttribute="top" secondItem="oxd-SB-ebq" secondAttribute="bottom" constant="23.5" id="z7X-i1-ZCl"/>
+                            <constraint firstItem="R6a-F3-xgR" firstAttribute="centerX" secondItem="1r6-fg-hkm" secondAttribute="centerX" id="zFi-oc-9FG"/>
+                            <constraint firstItem="gL6-B5-wf2" firstAttribute="centerX" secondItem="1r6-fg-hkm" secondAttribute="centerX" id="zHu-qT-2cf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="49L-Or-59C"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="OaF-Ty-hsR"/>
+                    <connections>
+                        <outlet property="importantSwitch" destination="iaP-hG-h7b" id="KXY-G0-H02"/>
+                        <outlet property="titleTextField" destination="oUW-GX-gJe" id="71Y-h9-03M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JvQ-Uh-Qte" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2682.608695652174" y="116.51785714285714"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r2j-9a-Elg">
